@@ -1,0 +1,33 @@
+{% extends 'pages/main.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+    <style>
+        
+        .page-holder {
+          min-height: 100vh;
+        }
+        
+        .bg-cover {
+          background-size: cover !important;
+        }
+        
+  </style>
+    <!-- Page Wrapper -->
+<div style="background: url({% static 'images/home-image.jpg' %})" class="page-holder bg-cover">
+
+    <div class="container py-5">
+      <header class="text-center text-white py-5">
+        <h1 class="display-4 font-weight-bold mb-4 text-light">Facility Management</h1>
+        <p class="lead mb-0">One stop to manage your facilities</p>
+      </header>
+  
+      <div class="text-white">
+        <p class="lead">Management in few clicks...</p>
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock %}

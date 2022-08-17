@@ -1,0 +1,13 @@
+{% extends 'pages/main.html' %}
+
+{% block title %}{{ fac.name }}{% endblock %}
+
+{% block content %}
+    <div style="margin: 50px;">
+        <a class="btn btn-warning" href="{% url 'facilities' %}">&larr; Facilities</a><br /><br />
+        <i>ID: {{id}}</i>
+        <h2>{{ name }} - {{ type }}</h2><br /><br />
+        <h3>{{ address }}</h3>
+        <img width=400 height=300 src="{{image}}" alt="{{name}}" />
+    </div>
+{% endblock %}

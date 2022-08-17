@@ -1,0 +1,38 @@
+{% extends 'pages/main.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="wrapper p-4">
+        <div class="title" align="center">
+            <h2>Login</h2>
+        </div>
+        <hr>
+        <br>
+        <div class="form" align="center">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="inputfield">
+                    <input type="text" name="username" class="form-control form-control-sm" placeholder="Username..">
+                </div> <br />
+            
+                <div class="inputfield">
+                <input type="password" name="password" class="form-control form-control-sm" placeholder="Password..">
+                </div>  <br /><br />
+                <div class="title">
+                    <button type="submit" class="px-5 btn btn-primary active">Log in</button>
+                </div><br /><br />
+
+                {{form.errors}}
+                {% for message in messages  %}
+                    <p id='messages'>{{message}}</p>
+                {% endfor %}
+            </form>
+
+            <p>Don't have an account? <a href="{% url 'register' %}">Signup</a></p>
+            {% comment %} <p>Forgot Password? <a href="{% url 'reset_password' %}">Reset Password</a> {% endcomment %}
+        </div>
+    </div>
+{% endblock %}

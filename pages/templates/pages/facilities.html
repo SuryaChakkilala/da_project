@@ -1,0 +1,55 @@
+{% extends 'pages/main.html' %}
+{% load static %}
+
+{% block title %}Facilities{% endblock %}
+
+{% block content %}
+    <div style="margin: 20px;" align='center'>
+    <h1><u>Vehicle Facilities</u></h1>
+    {% if v_list %}
+        {% for facility in v_list %}
+            <li>
+                {% if user.is_authenticated %}
+                    <img src="{{ facility.imageURL }}" width="200" height="100" alt="{{ facility.name }}" />&nbsp;&nbsp;{{ facility.name }}<br /><br />
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'facility' id=facility.id %}"><button class="btn btn-primary">View</button></a>
+                        <a href="{% url 'deletefacility' id=facility.id %}"><button class="btn btn-danger">Delete</button></a>
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    {% else %}
+        <h2>There are no vehicle facilities as of now</h2>
+    {% endif %}
+    <br /><br />
+    <h1><u>Cargo Facilities</u></h1>
+    {% if c_list %}
+        {% for facility in c_list %}
+            <li>
+                {% if user.is_authenticated %}
+                    <img src="{{ facility.imageURL }}" width="200" height="100" alt="{{ facility.name }}" />&nbsp;&nbsp;{{ facility.name }}<br /><br />
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'facility' id=facility.id %}"><button class="btn btn-primary">View</button></a>
+                        <a href="{% url 'deletefacility' id=facility.id %}"><button class="btn btn-danger">Delete</button></a>
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    {% else %}
+        <h2>There are no cargo facilities as of now</h2>
+    {% endif %}
+    <br /><br />
+    <h1><u>Goods Facilities</u></h1>
+    {% if g_list %}
+        {% for facility in g_list %}
+            <img src="{{ facility.imageURL }}" width="200" height="100" alt="{{ facility.name }}" />&nbsp;&nbsp;{{ facility.name }}<br /><br />
+            {% if user.is_authenticated %}
+                <a href="{% url 'facility' id=facility.id %}"><button class="btn btn-primary">View</button></a>
+                <a href="{% url 'deletefacility' id=facility.id %}"><button class="btn btn-danger">Delete</button></a>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <h2>There are no goods facilities as of now</h2>
+    {% endif %}
+    </div>
+{% endblock %}
